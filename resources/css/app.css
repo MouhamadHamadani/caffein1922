@@ -1,0 +1,25 @@
+@import "tailwindcss";
+@source "../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php";
+@source "../../storage/framework/views/*.php";
+@source "../**/*.blade.php";
+@source "../**/*.js";
+
+[dir="rtl"] .font-sans {
+    font-family: 'Cairo', sans-serif;
+}
+
+@font-face {
+  font-family: Chamberi;
+  font-style: normal;
+  font-weight: 200 700;
+  font-display: swap;
+  src: url("../../public/fonts/ChamberiDisplay-ExtraBoldItalic.otf") format("opentype");
+}
+
+@theme {
+  --font-chamberi: "Chamberi"; 
+}
+
+.swiper-pagination-bullet-active {
+    background: #C8922A !important;
+}
