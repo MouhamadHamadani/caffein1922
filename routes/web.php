@@ -1,27 +1,27 @@
 <?php
 
-use App\Http\Controllers\BlogController;
-use App\Http\Controllers\ContactController;
-use App\Http\Controllers\GalleryController;
-use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LanguageController;
-use App\Http\Controllers\MenuController;
-use App\Http\Controllers\PageController;
-use App\Http\Controllers\ReservationController;
+use App\Livewire\About;
+use App\Livewire\Blog;
+use App\Livewire\BlogPost;
+use App\Livewire\Contact;
+use App\Livewire\Gallery;
+use App\Livewire\GalleryAlbum;
+use App\Livewire\Home;
+use App\Livewire\Menu;
+use App\Livewire\Reservations;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/lang/{locale}', [LanguageController::class, 'switch'])
     ->name('lang.switch')
     ->whereIn('locale', ['en', 'ar']);
 
-Route::get('/', [HomeController::class, 'index'])->name('home');
-Route::get('/menu', [MenuController::class, 'index'])->name('menu');
-Route::get('/about', [PageController::class, 'about'])->name('about');
-Route::get('/gallery', [GalleryController::class, 'index'])->name('gallery');
-Route::get('/gallery/{album:slug}', [GalleryController::class, 'album'])->name('gallery.album');
-Route::get('/reserve', [ReservationController::class, 'create'])->name('reserve');
-Route::post('/reserve', [ReservationController::class, 'store'])->name('reserve.store');
-Route::get('/blog', [BlogController::class, 'index'])->name('blog');
-Route::get('/blog/{post:slug}', [BlogController::class, 'show'])->name('blog.show');
-Route::get('/contact', [ContactController::class, 'create'])->name('contact');
-Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
+Route::get('/', Home::class)->name('home');
+Route::get('/menu', Menu::class)->name('menu');
+Route::get('/about', About::class)->name('about');
+Route::get('/gallery', Gallery::class)->name('gallery');
+Route::get('/gallery/{slug}', GalleryAlbum::class)->name('gallery.album');
+Route::get('/reserve', Reservations::class)->name('reserve');
+Route::get('/blog', Blog::class)->name('blog');
+Route::get('/blog/{slug}', BlogPost::class)->name('blog.show');
+Route::get('/contact', Contact::class)->name('contact');

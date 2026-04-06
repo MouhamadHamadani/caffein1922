@@ -9,10 +9,13 @@
             <div>
                 <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
                 <ul class="space-y-2">
-                    <li><a href="{{ route('home') }}" class="text-gray-300 hover:text-[#C8922A] transition">{{ __('site.nav.home') }}</a></li>
-                    <li><a href="{{ route('menu') }}" class="text-gray-300 hover:text-[#C8922A] transition">{{ __('site.nav.menu') }}</a></li>
-                    <li><a href="{{ route('about') }}" class="text-gray-300 hover:text-[#C8922A] transition">{{ __('site.nav.about') }}</a></li>
-                    <li><a href="{{ route('reserve') }}" class="text-gray-300 hover:text-[#C8922A] transition">{{ __('site.nav.reserve') }}</a></li>
+                    <li><a href="{{ route('home') }}" wire:navigate class="text-gray-300 hover:text-[#C8922A] transition">{{ __('site.nav.home') }}</a></li>
+                    <li><a href="{{ route('menu') }}" wire:navigate class="text-gray-300 hover:text-[#C8922A] transition">{{ __('site.nav.menu') }}</a></li>
+                    <li><a href="{{ route('about') }}" wire:navigate class="text-gray-300 hover:text-[#C8922A] transition">{{ __('site.nav.about') }}</a></li>
+                    <li><a href="{{ route('reserve') }}" wire:navigate class="text-gray-300 hover:text-[#C8922A] transition">{{ __('site.nav.reserve') }}</a></li>
+                    <li><a href="{{ route('gallery') }}" wire:navigate class="text-gray-300 hover:text-[#C8922A] transition">{{ __('site.nav.gallery') }}</a></li>
+                    <li><a href="{{ route('blog') }}" wire:navigate class="text-gray-300 hover:text-[#C8922A] transition">{{ __('site.nav.blog') }}</a></li>
+                    <li><a href="{{ route('contact') }}" wire:navigate class="text-gray-300 hover:text-[#C8922A] transition">{{ __('site.nav.contact') }}</a></li>
                 </ul>
             </div>
             <div>
@@ -23,8 +26,8 @@
                     <li class="whitespace-pre-line">Hours: {{ \App\Models\Setting::get('hours_' . app()->getLocale()) }}</li>
                 </ul>
                 <div class="mt-6 flex space-x-4 rtl:space-x-reverse">
-                    <a href="{{ \App\Models\Setting::get('facebook') }}" class="text-gray-300 hover:text-[#C8922A] transition">Facebook</a>
-                    <a href="{{ \App\Models\Setting::get('instagram') }}" class="text-gray-300 hover:text-[#C8922A] transition">Instagram</a>
+                    <a href="{{ \App\Models\Setting::get('facebook') }}" target="_blank" class="text-gray-300 hover:text-[#C8922A] transition">Facebook</a>
+                    <a href="{{ \App\Models\Setting::get('instagram') }}" target="_blank" class="text-gray-300 hover:text-[#C8922A] transition">Instagram</a>
                 </div>
             </div>
         </div>

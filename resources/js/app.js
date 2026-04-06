@@ -8,7 +8,7 @@ import 'aos/dist/aos.css';
 window.Alpine = Alpine;
 window.Swiper = Swiper;
 
-Alpine.start();
+// Alpine.start();
 AOS.init({
     duration: 1000,
     once: true,

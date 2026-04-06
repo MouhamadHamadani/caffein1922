@@ -1,0 +1,1 @@
+<a href="{{ route('home') }}" wire:navigate class="text-[#3B1E0E] hover:text-[#C8922A] transition {{ request()->routeIs('home') ? 'font-bold text-[#C8922A]' : '' }}">{{ __('site.nav.home') }}</a>
