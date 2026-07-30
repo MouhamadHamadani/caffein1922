@@ -26,13 +26,13 @@
                 </p>
             </div>
             <div class="relative h-[500px] rounded-lg shadow-2xl overflow-hidden" data-aos="fade-left">
-                <img src="{{ asset('images/story_1.png') }}" alt="Our Heritage" class="w-full h-full object-cover">
+                <img src="{{ asset('images/story_1.png') }}" alt="The original Caffeine 1922 roastery in Beirut" width="765" height="1020" loading="lazy" class="w-full h-full object-cover">
             </div>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center flex-row-reverse">
             <div class="relative h-[500px] rounded-lg shadow-2xl overflow-hidden md:order-2" data-aos="fade-left">
-                <img src="{{ asset('images/story.png') }}" alt="Our Process" class="w-full h-full object-cover">
+                <img src="{{ asset('images/story.png') }}" alt="A master roaster checking the roast profile" width="1360" height="1020" loading="lazy" class="w-full h-full object-cover">
             </div>
             <div class="md:order-1" data-aos="fade-right">
                 <h2 class="text-3xl font-bold text-[#3B1E0E] mb-6">The Art of Roasting</h2>

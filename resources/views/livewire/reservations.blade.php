@@ -10,7 +10,19 @@
                     </div>
                 @endif
 
+                @error('form')
+                    <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-6">
+                        {{ $message }}
+                    </div>
+                @enderror
+
                 <form wire:submit.prevent="submit" class="space-y-6">
+                    {{-- Honeypot: hidden from people, irresistible to bots. --}}
+                    <div class="hidden" aria-hidden="true">
+                        <label for="reserve-website">Website</label>
+                        <input type="text" id="reserve-website" wire:model="website" tabindex="-1" autocomplete="off">
+                    </div>
+
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div>
                             <label class="block text-sm font-bold text-[#3B1E0E] mb-2">{{ __('site.reservation.name') }}</label>

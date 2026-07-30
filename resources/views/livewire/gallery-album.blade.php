@@ -9,7 +9,7 @@
                 @foreach($photos as $photo)
                     <div class="aspect-square overflow-hidden rounded-lg shadow-md">
                         @if($photo->hasMedia('photo'))
-                            <img src="{{ $photo->getFirstMediaUrl('photo') }}" alt="{{ $photo->translated_caption }}" class="w-full h-full object-cover hover:scale-110 transition duration-500">
+                            <img src="{{ $photo->getFirstMediaUrl('photo', 'thumb') }}" alt="{{ $photo->translated_caption ?: $album->translated_title }}" width="400" height="400" loading="lazy" class="w-full h-full object-cover hover:scale-110 transition duration-500">
                         @endif
                     </div>
                 @endforeach

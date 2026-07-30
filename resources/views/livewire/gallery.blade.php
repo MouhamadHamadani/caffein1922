@@ -9,7 +9,7 @@
                 @foreach($albums as $album)
                     <a href="{{ route('gallery.album', $album->slug) }}" wire:navigate class="group relative overflow-hidden rounded-lg shadow-lg aspect-square">
                         @if($album->hasMedia('cover'))
-                            <img src="{{ $album->getFirstMediaUrl('cover') }}" alt="{{ $album->translated_title }}" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                            <img src="{{ $album->getFirstMediaUrl('cover', 'display') }}" alt="{{ $album->translated_title }}" width="800" height="800" loading="lazy" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
                         @else
                             <div class="w-full h-full bg-gray-200 flex items-center justify-center">No Cover</div>
                         @endif

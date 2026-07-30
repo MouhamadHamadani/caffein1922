@@ -3,7 +3,7 @@
         <div class="flex justify-between h-20">
             <div class="flex items-center">
                 <a href="{{ route('home') }}" wire:navigate class="flex items-center">
-                    <img src="{{ asset('images/logo.png') }}" alt="Caffeine 1922 Logo" class="h-20 w-auto mr-3 rtl:mr-0 rtl:ml-3">
+                    <img src="{{ asset('images/logo.png') }}" alt="Caffeine 1922 — home" width="486" height="286" class="h-20 w-auto mr-3 rtl:mr-0 rtl:ml-3">
                     {{-- <span class="text-2xl font-bold text-[#3B1E0E] tracking-wider hidden sm:inline">CAFFEINE 1922</span> --}}
                 </a>
             </div>
@@ -25,8 +25,15 @@
                 </div>
             </div>
             <div class="md:hidden flex items-center">
-                <button @click="open = !open" class="text-[#3B1E0E]">
-                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <button type="button"
+                        @click="open = !open"
+                        aria-controls="mobile-menu"
+                        aria-expanded="false"
+                        x-bind:aria-expanded="open ? 'true' : 'false'"
+                        x-bind:aria-label="open ? @js(__('site.a11y.close_menu')) : @js(__('site.a11y.open_menu'))"
+                        aria-label="{{ __('site.a11y.open_menu') }}"
+                        class="text-[#3B1E0E]">
+                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                         <path x-show="!open" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
                         <path x-show="open" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
                     </svg>
@@ -34,7 +41,7 @@
             </div>
         </div>
     </div>
-    <div x-show="open" x-cloak class="md:hidden bg-[#FDF6EC] border-t border-gray-200">
+    <div id="mobile-menu" x-show="open" x-cloak class="md:hidden bg-[#FDF6EC] border-t border-gray-200">
         <div class="px-2 pt-2 pb-3 space-y-1">
             <a href="{{ route('home') }}" wire:navigate class="block px-3 py-2 text-[#3B1E0E] {{ request()->routeIs('home') ? 'font-bold text-[#C8922A]' : '' }}">{{ __('site.nav.home') }}</a>
             <a href="{{ route('menu') }}" wire:navigate class="block px-3 py-2 text-[#3B1E0E] {{ request()->routeIs('menu') ? 'font-bold text-[#C8922A]' : '' }}">{{ __('site.nav.menu') }}</a>

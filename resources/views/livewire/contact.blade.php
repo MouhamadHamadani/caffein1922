@@ -10,7 +10,19 @@
                     </div>
                 @endif
 
+                @error('form')
+                    <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-6">
+                        {{ $message }}
+                    </div>
+                @enderror
+
                 <form wire:submit.prevent="submit" class="space-y-6">
+                    {{-- Honeypot: hidden from people, irresistible to bots. --}}
+                    <div class="hidden" aria-hidden="true">
+                        <label for="contact-website">Website</label>
+                        <input type="text" id="contact-website" wire:model="website" tabindex="-1" autocomplete="off">
+                    </div>
+
                     <div>
                         <label class="block text-sm font-bold text-[#3B1E0E] mb-2">{{ __('site.contact.name') }}</label>
                         <input type="text" wire:model="name" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-[#C8922A] focus:border-transparent outline-none">

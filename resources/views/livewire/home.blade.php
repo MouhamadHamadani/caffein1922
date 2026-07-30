@@ -2,7 +2,7 @@
     {{-- Hero Section --}}
     <section class="relative h-screen flex items-center justify-center bg-[#3B1E0E] overflow-hidden">
         <div class="absolute inset-0">
-            <img src="{{ asset('images/hero-section.png') }}" alt="Caffeine 1922 Hero" class="w-full h-full object-cover opacity-60">
+            <img src="{{ asset('images/hero-section.png') }}" alt="The Caffeine 1922 counter in Mar Elias, Beirut" width="1360" height="765" fetchpriority="high" class="w-full h-full object-cover opacity-60">
             <div class="absolute inset-0 bg-black opacity-40"></div>
         </div>
         <div class="relative z-10 text-center px-4" data-aos="fade-up">
@@ -31,7 +31,7 @@
                     <a href="{{ route('about') }}" wire:navigate class="text-[#C8922A] font-bold hover:underline">{{ __('site.cta.our_story') }} →</a>
                 </div>
                 <div class="relative h-96 rounded-lg shadow-xl overflow-hidden" data-aos="fade-left">
-                    <img src="{{ asset('images/story.png') }}" alt="Our Story" class="w-full h-full object-cover">
+                    <img src="{{ asset('images/story.png') }}" alt="Freshly roasted beans being scooped at Caffeine 1922" width="1360" height="1020" loading="lazy" class="w-full h-full object-cover">
                 </div>
             </div>
         </div>
@@ -68,7 +68,7 @@
                     <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition">
                         <div class="h-64 bg-gray-200">
                             @if($item->hasMedia('image'))
-                                <img src="{{ $item->getFirstMediaUrl('image') }}" alt="{{ $item->translated_name }}" class="w-full h-full object-cover">
+                                <img src="{{ $item->getFirstMediaUrl('image', 'display') }}" alt="{{ $item->translated_name }}" width="800" height="600" loading="lazy" class="w-full h-full object-cover">
                             @else
                                 <div class="w-full h-full flex items-center justify-center text-gray-400">No Image</div>
                             @endif

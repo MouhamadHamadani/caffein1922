@@ -18,6 +18,8 @@ class SettingsSeeder extends Seeder
             ['key' => 'google_maps',  'value' => 'https://maps.app.goo.gl/M4GbRKwp1ykTE9NC9', 'group' => 'contact'],
             ['key' => 'hours_en',     'value' => "Mon–Sat: 7:00 AM – 12:00 AM\nSunday: 11:00 AM – 12:00 AM", 'group' => 'hours'],
             ['key' => 'hours_ar',     'value' => "الاثنين–السبت: ٧ص – ١٢م\nالأحد: ١١ص – ١٢م", 'group' => 'hours'],
+            // schema.org format, comma separated — feeds the LocalBusiness structured data.
+            ['key' => 'opening_hours_schema', 'value' => 'Mo-Sa 07:00-23:59, Su 11:00-23:59', 'group' => 'hours'],
             ['key' => 'rating',       'value' => '4.5', 'group' => 'general'],
             ['key' => 'reviews_count','value' => '349', 'group' => 'general'],
             ['key' => 'tagline_en',   'value' => 'Roasted with passion since 1922', 'group' => 'general'],

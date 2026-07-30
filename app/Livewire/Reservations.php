@@ -2,11 +2,18 @@
 
 namespace App\Livewire;
 
+use App\Livewire\Concerns\ProtectsAgainstSpam;
+use App\Mail\ReservationConfirmation;
+use App\Mail\ReservationReceived;
 use App\Models\Reservation;
+use Artesaos\SEOTools\Facades\SEOTools;
+use Illuminate\Support\Facades\Mail;
 use Livewire\Component;
 
 class Reservations extends Component
 {
+    use ProtectsAgainstSpam;
+
     public $name;
     public $email;
     public $phone;
@@ -27,9 +34,20 @@ class Reservations extends Component
 
     public function submit()
     {
+        // Bots fill the honeypot or submit instantly — drop it without telling them.
+        if ($this->looksAutomated()) {
+            $this->finish();
+
+            return;
+        }
+
+        if ($this->isRateLimited()) {
+            return;
+        }
+
         $this->validate();
 
-        Reservation::create([
+        $reservation = Reservation::create([
             'name' => $this->name,
             'email' => $this->email,
             'phone' => $this->phone,
@@ -39,13 +57,29 @@ class Reservations extends Component
             'notes' => $this->notes,
         ]);
 
+        $this->recordSubmission();
+
+        Mail::to($reservation->email)->send(new ReservationConfirmation($reservation));
+
+        if ($owner = config('mail.admin_address')) {
+            Mail::to($owner)->send(new ReservationReceived($reservation));
+        }
+
+        $this->finish();
+    }
+
+    private function finish(): void
+    {
         session()->flash('success', __('site.reservation.success'));
 
-        $this->reset();
+        $this->reset(['name', 'email', 'phone', 'party_size', 'date', 'time_slot', 'notes', 'website']);
     }
 
     public function render()
     {
+        SEOTools::setTitle(__('site.seo.reserve.title'), false);
+        SEOTools::setDescription(__('site.seo.reserve.description'));
+
         return view('livewire.reservations')->layout('layouts.app');
     }
 }

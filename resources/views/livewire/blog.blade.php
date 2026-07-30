@@ -10,7 +10,7 @@
                     <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition">
                         <div class="h-48 bg-gray-200">
                             @if($post->hasMedia('cover'))
-                                <img src="{{ $post->getFirstMediaUrl('cover') }}" alt="{{ $post->translated_title }}" class="w-full h-full object-cover">
+                                <img src="{{ $post->getFirstMediaUrl('cover') }}" alt="{{ $post->translated_title }}" width="800" height="450" loading="lazy" class="w-full h-full object-cover">
                             @endif
                         </div>
                         <div class="p-6">

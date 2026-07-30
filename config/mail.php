@@ -18,6 +18,18 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Owner Notification Address
+    |--------------------------------------------------------------------------
+    |
+    | Reservation requests and contact form messages are forwarded to this
+    | address. Leave it empty to skip the owner notification entirely.
+    |
+    */
+
+    'admin_address' => env('MAIL_ADMIN_ADDRESS'),
+
+    /*
+    |--------------------------------------------------------------------------
     | Mailer Configurations
     |--------------------------------------------------------------------------
     |
